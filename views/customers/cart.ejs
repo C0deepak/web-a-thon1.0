@@ -1,0 +1,39 @@
+<div class="main">
+    <% if(!session.cart){ %>
+    <section class="empty-cart">
+        <h1>Cart Empty  &#128533;</h1>
+        <p>You probably haven't ordered a pizza yet. <br>
+            To order a pizza, go to main page
+        </p>
+        <img src="/img/emp-cart.png" alt="empty-cart">
+        <a href="/"> Go Back </a>
+    </section>
+    <% } else { %>
+    <section class="order-cart">
+        <h1><i class="fa-solid fa-cart-arrow-down"></i>All Orders</h1>
+        <div class="orders">
+            <% for(let items of Object.values(session.cart.items)){ %>
+                <div class="order">
+                    <img src="/img/<%= items.item.image%>" alt="">
+                    <h2 style="flex: 1;"><%= items.item.name%></h2>
+                    <p style="flex: 1;"><%= items.qty%></p>
+                    <p>&#8377; <%= items.item.price * items.qty%></p>
+                </div>
+            <% } %>
+        </div>
+        <div class="money">
+            <h2>Total Amount: <span>&#8377; <%= session.cart.totalPrice%></span></h2>
+            <% if(user){ %>
+                <form action="/orders" method="POST">
+                    <input type="text" name="address" placeholder="Address">
+                    <input type="number" name="phone" placeholder="Phone No.">
+                    <button type="submit">Order</button>
+                </form>
+            <% } else { %>
+                <a href="/login" class="logcont">Login To Continue</a>
+            <% } %>
+        </div>
+    </section>
+    <% } %>
+</div>
+

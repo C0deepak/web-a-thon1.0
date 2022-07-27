@@ -1,0 +1,47 @@
+<div class="main">
+    <section class="admin-ord">
+        <h1>All orders</h1>
+    
+        <table>
+            <thead>
+            <tr>
+                <th>Orders</th>
+                <th>Customers</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>time</th>
+            </tr>
+            </thead>
+            <tbody id="orderTableBody">
+                <% if(orders.length){
+                    function renderItems(items) {
+                        let parsedItems = Object.values(items)
+                        return parsedItems.map((menuItem) => {
+                            return `
+                                ${menuItem.item.name} - ${menuItem.qty} pcs
+                            `
+                        }).join(',')
+                    } 
+                    %>
+                    
+                    <% orders.forEach((order) => { %>
+                        <tr>
+                            <td>
+                                <a href="#"><%= order._id%></a>
+                                <div><%= renderItems(order.items) %></div>
+                            </td>
+                            <td><%= order.customerId.name%></td>
+                            <td><%= order.phone%></td>
+                            <td><%= order.address%></td>
+                            <td><%= order.createdAt%></td>
+                        </tr>
+                    <% })%>
+            
+                <% }else{ %>
+                    <tr>No orders found !</tr>
+                <% } %>
+            </tbody>
+        </table>
+    </section>
+
+</div>

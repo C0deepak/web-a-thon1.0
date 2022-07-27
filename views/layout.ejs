@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="side-bar">
+        <div class="logo">
+            <p><i class="fa-solid fa-burger"></i><span>Cousine</span></p>
+        </div>
+        <% if(!user){ %>
+        <a href="/login" class="login">
+            <p>login / Register</p><i class="fa-solid fa-user"></i>
+        </a>
+        <% }else{ %>
+        <form id="logout" action="/logout" method="POST">
+            <a href="#" class="login" onclick="document.getElementById('logout').submit()">
+                <p>logout</p><i class="fa-solid fa-user"></i>
+            </a>
+        </form>
+        <p style="font-weight: bold; color: #15ce56; margin-left: 30px">Hello <%= user.name%></p>
+        <% } %>
+        <div class="links">
+            <p class="head">Menu</p>
+            <a href="/" class="act"><i class="fa-solid fa-bowl-rice"></i><span>home</span></a>
+            <a href="#"><i class="fa-solid fa-utensils"></i><span>About</span></a>
+            <a href="#"><i class="fa-solid fa-pizza-slice"></i><span>Bit's Menu</span></a>
+            <a href="#"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
+        </div>
+        <div class="links">
+            <p class="head">Locate Us !</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.583103841051!2d86.47278081469234!3d23.655096684636412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f696ebd28f92fd%3A0x3d87afc806c7c1a2!2sB.I.T%20Sindri%20Canteen!5e0!3m2!1sen!2sin!4v1658046465751!5m2!1sen!2sin"
+                width="180" height="120" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="extra">
+                <p><i class="fa-solid fa-phone"></i>+91 0987654321</p>
+                <p><i class="fa-solid fa-clock"></i>8:00 AM-7:00 PM</p>
+            </div>
+        </div>
+        <div class="social">
+            <span><i class="fa-brands fa-facebook-f"></i></span>
+            <span><i class="fa-brands fa-instagram"></i></span>
+            <span><i class="fa-brands fa-whatsapp"></i></span>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="nav-bar">
+            <div id="side-menu" class="bar fa-solid fa-bars-staggered"></div>
+            <div class="logo">
+                <p><img src="/img/logo.png" alt=""></p>
+            </div>
+            <a href="/cart" class="cart">
+                <span id="totalQty"><%= session.cart ? session.cart.totalQty : '' %></span>
+                <i class="fa-solid fa-cart-arrow-down"></i>
+            </a>
+        </div>
+    </div>
+
+    <%- body%>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>

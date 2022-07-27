@@ -1,0 +1,13 @@
+<div class="main log">
+    <h1>Log In</h1>
+    <form class="aut" action="/login" method="POST">
+        <% if(messages.error){ %>
+            <span style="font-weight: bold; color: red;"><%= messages.error %></span>
+        <% } %>
+        <input type="text" name="regno" placeholder="Registration-Number">
+        <input type="password" name="password" placeholder="Password">
+       
+        <button type="submit">LogIn</button>
+        <a href="/register">New User?</a>
+    </form>
+</div>

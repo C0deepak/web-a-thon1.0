@@ -1,0 +1,14 @@
+<div class="main log">
+    <h1>Register</h1>
+    <form class="aut" action="/register" method="POST">
+        <% if(messages.error){ %>
+        <span style="font-weight: bold; color: red;"><%= messages.error %></span>
+        <% } %>
+        <input type="text" name="name" value="<%=messages.name%>" placeholder="Your Name">
+        <input type="email" name="email" value="<%=messages.email%>" placeholder="Your Email">
+        <input type="text" name="regno" value="<%=messages.regno%>" placeholder="Registration Number">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">SignUp</button>
+        <a href="/login">Already a User?</a>
+    </form>
+</div>

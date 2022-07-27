@@ -1,0 +1,89 @@
+
+    <div class="main">
+
+        <div class="hero" id="hero">
+            <div class="image" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <img src="/img/back.png" alt="">
+            </div>
+            <div class="hero-text" data-aos="zoom-in-up" data-aos-duration="2000">
+                <h1><span>Food</span> is symbolic of <br><span>love</span> when words are <br><span>inadequate.</span></h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae mollitia quas sit tenetur laboriosam assumenda qui ratione dolorum aut tempora!</p>
+                <a href="#">Order Now</a>
+                <div class="rating">
+                    <img src="/img/pic1.png" alt="">
+                    <div class="star">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="label">
+            <div class="lab">
+                <i class="fa-solid fa-truck"></i>
+                <p>Fast Delivery</p>
+            </div>
+            <div class="lab">
+                <i class="fa-solid fa-shield-virus"></i>
+                <p>Safe</p>
+            </div>
+            <div class="lab">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <p>Easy Order</p>
+            </div>
+        </div>
+
+        <div class="menu">
+            <h2>Our Menu</h2>
+            <div class="food-items">
+                <% menu.forEach(function(items){ %>
+                <div class="item">
+                    <div class="food-img">
+                        <img src="/img/<%= items.image %>" alt="">
+                    </div>
+                    <div class="food-des">
+                        <h3><%= items.name %></h3>
+                        <p><%= items.des %></p>
+                        <div class="add">
+                            <span>&#8377; <%= items.price %></span>
+                            <button data-items="<%= JSON.stringify(items)%>" class="add-cart">Add-To-Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class="offers">
+            <div class="text">
+                <h2>50% off</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus cum perferendis a quisquam similique dolorem odio perspiciatis magni aut, at numquam mollitia distinctio, vitae officiis assumenda asperiores dolor quibusdam?</p>
+            </div>
+            <div class="image">
+                <img src="/img/salad.png" alt="">
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="rest">
+                <div class="about">
+                    <h2>About us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores cupiditate possimus iste ipsam voluptas fugiat at consectetur, provident fugit reprehenderit aspernatur natus non ea eum impedit, asperiores, molestias facere laudantium!</p>
+                </div>
+                <div class="form">
+                    <h2>Get in touch</h2>
+                    <form action="#">
+                        <p>Name</p>
+                        <input type="text" required="required">
+                        <p>Email</p>
+                        <input type="email">
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="foot">
+                <p>Copyright &copy; Team Vision 2022</p>
+            </div>
+        </div>
+        
+    </div>
